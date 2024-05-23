@@ -8,8 +8,15 @@ div {
     text-align: center;
 }
 .tracker{
-    
     padding-bottom: 10px;
+}
+.bold{
+    font-weight: bolder;
+}
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .purchase_buttons{
     width: 100%;
