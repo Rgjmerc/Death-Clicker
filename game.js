@@ -12,65 +12,85 @@ let nuke = 0
 let nukeAmmount = document.getElementById("nuke")
 let cps = 0
 let cpsAmmount = document.getElementById("cps")
+let kCost = 10
+let knifeCost = document.getElementById("knifeCost")
+let dCost = 50
+let dynamiteCost = document.getElementById("dynamiteCost")
+let bCost = 250
+let bombCost = document.getElementById("bombCost")
+let mCost = 500
+let missileCost = document.getElementById("missileCost")
+let nCost = 1000
+let nukeCost = document.getElementById("nukeCost")
 
 function increasePoints() {
     points = points + 1 + (knife * .2)
-    tracker.innerText = points.toFixed(2) + " Deaths"
+    tracker.innerText = points.toFixed(1) + " Deaths"
 }
 function purchaseKnife() {
-    if (points >= 10) {
-        points = points - 10
-        tracker.innerText = points.toFixed(2) + " Deaths"
+    kCost = 10 + knife ** 2.25
+    if (points >= kCost) {
+        points = points - kCost
+        tracker.innerText = points.toFixed(1) + " Deaths"
         knife = knife + 1
         knifeAmmount.innerText = knife + " Knives Owned"
+        knifeCost.innerText = ("Cost: ") + (10 + knife ** 2.25).toFixed(1)
     } else {
-        alert("Not enough deaths! You need at least 10 deaths to buy a Knife")
+        alert("Not enough deaths!")
     }
 }
 function purchaseDynamite() {
-    if (points >= 50) {
-        points = points - 50
-        tracker.innerText = points.toFixed(2) + " Deaths"
+    dCost = 50 + dynamite ** 2.75
+    if (points >= dCost) {
+        points = points - dCost
+        tracker.innerText = points.toFixed(1) + " Deaths"
         dynamite = dynamite + 1
         dynamiteAmmount.innerText = dynamite + " Dynamite Owned"
+        dynamiteCost.innerText = ("Cost: ") + (50 + dynamite ** 2.75).toFixed(1)
     } else {
-        alert("Not enough deaths! You need at least 50 deaths to buy Dynamite")
+        alert("Not enough deaths!")
     }
 }
 function purchaseBomb() {
-    if (points >= 250) {
-        points = points - 250
-        tracker.innerText = points.toFixed(2) + " Deaths"
+    bCost = 250 + bomb ** 3.25
+    if (points >= bCost) {
+        points = points - bCost
+        tracker.innerText = points.toFixed(1) + " Deaths"
         bomb = bomb + 1
         bombAmmount.innerText = bomb + " Bombs Owned"
+        bombCost.innerText = ("Cost: ") + (250 + bomb ** 3.25).toFixed(1)
     } else {
-        alert("Not enough deaths! You need at least 250 deaths to buy Bombs")
+        alert("Not enough deaths!")
     }
 }
 function purchaseMissile() {
-    if (points >= 500) {
-        points = points - 500
-        tracker.innerText = points.toFixed(2) + " Deaths"
+    mCost = 500 + missile ** 3.75
+    if (points >= mCost) {
+        points = points - mCost
+        tracker.innerText = points.toFixed(1) + " Deaths"
         missile = missile + 1
         missileAmmount.innerText = missile + " Missiles Owned"
+        missileCost.innerText = ("Cost: ") + (500 + missile ** 3.75).toFixed(1)
     } else {
-        alert("Not enough deaths! You need at least 500 deaths to buy Missiles")
+        alert("Not enough deaths!")
     }
 }
 function purchaseNuke() {
-    if (points >= 1000) {
-        points = points - 1000
-        tracker.innerText = points.toFixed(2) + " Deaths"
+    nCost = 1000 + nuke ** 4.25
+    if (points >= nukeCost) {
+        points = points - nukeCost
+        tracker.innerText = points.toFixed(1) + " Deaths"
         nuke = nuke + 1
         nukeAmmount.innerText = nuke + " Nukes Owned"
+        nukeCost.innerText = ("Cost: ") + (1000 + nuke ** 4.25).toFixed(1)
     } else {
-        alert("Not enough deaths! You need at least 10000 deaths to buy Nukes")
+        alert("Not enough deaths!")
     }
 }
 function gameLoop() {
     points = points + (1 * dynamite) + (5 * bomb) + (10 * missile) + (25 * nuke) 
     cps = (1 * dynamite) + (5 * bomb) + (10 * missile) + (25 * nuke) 
-    tracker.innerText = points.toFixed(2) + " Deaths"
+    tracker.innerText = points.toFixed(1) + " Deaths"
     cpsAmmount.innerText = cps + " deaths per second"
 }
 setInterval(gameLoop, 1000)
