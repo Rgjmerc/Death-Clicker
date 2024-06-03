@@ -10,9 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="game.css">
 </head>
-<body>
-    <div class="container">
-        <div class="Header"><h3>Welcome to Death Clicker</h3></div>
+<body>  
+        <div class="container">
+            <div class="Header"><h3>Welcome to Death Clicker</h3>
+                <button onclick="muteMusic()" class="mutebutton">
+                    Mute
+              </button>
+            </div>
+
         <div class="Game">
             <br><br>
             <h1 id="tracker">0 Deaths</h1>
@@ -57,6 +62,7 @@
         <div class="Footer">Footer
         </div>
       </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
       <script src="game.js"></script>
 </body>
 </html>

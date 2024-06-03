@@ -23,11 +23,32 @@ let missileCost = document.getElementById("missileCost")
 let nCost = 1000
 let nukeCost = document.getElementById("nukeCost")
 
+let bgMusic = new Howl({
+    src: ["audio/bgmusic.ogg"],
+    autoplay: true,
+    volume: .25,
+    loop: true
+})
+
+function muteMusic() {
+    bgMusic.pause()
+}
+
+let knifesound = new Howl({
+    src: ["audio/knife.mp3"]
+})
+
+let deathsound = new Howl({
+    src: ["audio/snap1.ogg"]
+})
+
 function increasePoints() {
+    deathsound.play()
     points = points + 1 + (knife * .2)
     tracker.innerText = points.toFixed(1) + " Deaths"
 }
 function purchaseKnife() {
+    knifesound.play()
     kCost = 10 + knife ** 2.25
     if (points >= kCost) {
         points = points - kCost
