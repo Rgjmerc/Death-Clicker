@@ -18,48 +18,48 @@ function increasePoints() {
     tracker.innerText = points.toFixed(2) + " Deaths"
 }
 function purchaseKnife() {
-    if (points >= 10) {
-        points = points - 10
+    if (points >= 100) {
+        points = points - 100
         tracker.innerText = points.toFixed(2) + " Deaths"
         knife = knife + 1
         knifeAmmount.innerText = knife + " Knives Owned"
     } else {
-        alert("Not enough deaths! You need at least 10 deaths to buy a Knife")
+        alert("Not enough deaths! You need at least 100 deaths to buy a Knife")
     }
 }
 function purchaseDynamite() {
-    if (points >= 50) {
-        points = points - 50
+    if (points >= 500) {
+        points = points - 500
         tracker.innerText = points.toFixed(2) + " Deaths"
         dynamite = dynamite + 1
         dynamiteAmmount.innerText = dynamite + " Dynamite Owned"
     } else {
-        alert("Not enough deaths! You need at least 50 deaths to buy Dynamite")
+        alert("Not enough deaths! You need at least 500 deaths to buy Dynamite")
     }
 }
 function purchaseBomb() {
-    if (points >= 250) {
-        points = points - 250
+    if (points >= 2500) {
+        points = points - 2500
         tracker.innerText = points.toFixed(2) + " Deaths"
         bomb = bomb + 1
         bombAmmount.innerText = bomb + " Bombs Owned"
     } else {
-        alert("Not enough deaths! You need at least 250 deaths to buy Bombs")
+        alert("Not enough deaths! You need at least 2500 deaths to buy Bombs")
     }
 }
 function purchaseMissile() {
-    if (points >= 500) {
-        points = points - 500
+    if (points >= 5000) {
+        points = points - 5000
         tracker.innerText = points.toFixed(2) + " Deaths"
         missile = missile + 1
         missileAmmount.innerText = missile + " Missiles Owned"
     } else {
-        alert("Not enough deaths! You need at least 500 deaths to buy Missiles")
+        alert("Not enough deaths! You need at least 5000 deaths to buy Missiles")
     }
 }
 function purchaseNuke() {
-    if (points >= 1000) {
-        points = points - 1000
+    if (points >= 10000) {
+        points = points - 10000
         tracker.innerText = points.toFixed(2) + " Deaths"
         nuke = nuke + 1
         nukeAmmount.innerText = nuke + " Nukes Owned"
