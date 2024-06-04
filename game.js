@@ -56,7 +56,14 @@ let nukesound = new Howl({
 })
 
 function muteMusic() {
+    document.getElementById("mutebutton").style.display = "none"
+    document.getElementById("playbutton").style.display = "inline-block"
     bgMusic.pause()
+}
+function playMusic() {
+    document.getElementById("playbutton").style.display = "none"
+    document.getElementById("mutebutton").style.display = "inline-block"
+    bgMusic.play()
 }
 function increasePoints() {
     deathsound.play()
@@ -161,5 +168,6 @@ function checker() {
         document.getElementById("nukebtn").disabled = false;
     }
 }
+
 setInterval(gameLoop, 1000)
 setInterval(checker, 1)
