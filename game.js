@@ -30,18 +30,34 @@ let bgMusic = new Howl({
     loop: true
 })
 
-function muteMusic() {
-    bgMusic.pause()
-}
-
 let knifesound = new Howl({
     src: ["audio/knife.mp3"]
 })
 
 let deathsound = new Howl({
-    src: ["audio/snap1.ogg"]
+    src: ["audio/click.ogg"]
 })
 
+let dynamitesound = new Howl({
+    src: ["audio/Dynamite.mp3"],
+    volume: .5
+})
+
+let bombsound = new Howl({
+    src: ["audio/bomb.mp3"]
+})
+
+let missilesound = new Howl({
+    src: ["audio/missile.mp3"]
+})
+
+let nukesound = new Howl({
+    src: ["audio/nuke.mp3"]
+})
+
+function muteMusic() {
+    bgMusic.pause()
+}
 function increasePoints() {
     deathsound.play()
     points = points + 1 + (knife * .2)
@@ -61,81 +77,85 @@ function purchaseKnife() {
     }
 }
 function purchaseDynamite() {
-    dCost = 50 + dynamite ** 2.75
+    dynamitesound.play()
+    dCost = 250 + dynamite ** 2.75
     if (points >= dCost) {
         points = points - dCost
         tracker.innerText = points.toFixed(1) + " Deaths"
         dynamite = dynamite + 1
         dynamiteAmmount.innerText = dynamite + " Dynamite Owned"
-        dynamiteCost.innerText = ("Cost: ") + (50 + dynamite ** 2.75).toFixed(1)
+        dynamiteCost.innerText = ("Cost: ") + (250 + dynamite ** 2.75).toFixed(1)
     } else {
         alert("Not enough deaths!")
     }
 }
 function purchaseBomb() {
-    bCost = 250 + bomb ** 3.25
+    bombsound.play()
+    bCost = 750 + bomb ** 3.25
     if (points >= bCost) {
         points = points - bCost
         tracker.innerText = points.toFixed(1) + " Deaths"
         bomb = bomb + 1
         bombAmmount.innerText = bomb + " Bombs Owned"
-        bombCost.innerText = ("Cost: ") + (250 + bomb ** 3.25).toFixed(1)
+        bombCost.innerText = ("Cost: ") + (750 + bomb ** 3.25).toFixed(1)
     } else {
         alert("Not enough deaths!")
     }
 }
 function purchaseMissile() {
-    mCost = 500 + missile ** 3.75
+    missilesound.play()
+    mCost = 2500 + missile ** 3.75
     if (points >= mCost) {
         points = points - mCost
         tracker.innerText = points.toFixed(1) + " Deaths"
         missile = missile + 1
         missileAmmount.innerText = missile + " Missiles Owned"
-        missileCost.innerText = ("Cost: ") + (500 + missile ** 3.75).toFixed(1)
+        missileCost.innerText = ("Cost: ") + (2500 + missile ** 3.75).toFixed(1)
     } else {
         alert("Not enough deaths!")
     }
 }
 function purchaseNuke() {
-    nCost = 1000 + nuke ** 4.25
+    nukesound.play()
+    nCost = 10000 + nuke ** 4.25
     if (points >= nCost) {
         points = points - nCost
         tracker.innerText = points.toFixed(1) + " Deaths"
         nuke = nuke + 1
         nukeAmmount.innerText = nuke + " Nukes Owned"
-        nukeCost.innerText = ("Cost: ") + (1000 + nuke ** 4.25).toFixed(1)
+        nukeCost.innerText = ("Cost: ") + (10000 + nuke ** 4.25).toFixed(1)
     } else {
         alert("Not enough deaths!")
     }
 }
 function gameLoop() {
-    points = points + (1 * dynamite) + (5 * bomb) + (10 * missile) + (25 * nuke) 
+    points = points + (1 * dynamite) + (10 * bomb) + (25 * missile) + (50 * nuke) 
 }
 function checker() {
     tracker.innerText = points.toFixed(1) + " Deaths"
-    cps = (1 * dynamite) + (5 * bomb) + (10 * missile) + (25 * nuke) 
+    cps = (1 * dynamite) + (10 * bomb) + (25 * missile) + (50 * nuke) 
     cpsAmmount.innerText = cps + " deaths per second"
     if (points < 10 + knife ** 2.25) {
         document.getElementById("knifebtn").disabled = true;
     }else{
         document.getElementById("knifebtn").disabled = false;
     }
-    if (points < 50 + dynamite ** 2.75) {
+    if (points < 250 + dynamite ** 2.75) {
         document.getElementById("dynamitebtn").disabled = true;
     }else{
         document.getElementById("dynamitebtn").disabled = false;
     }
-    if (points < 250 + bomb ** 3.25) {
+    if (points < 750 + bomb ** 3.25) {
         document.getElementById("bombbtn").disabled = true;
     }else{
         document.getElementById("bombbtn").disabled = false;
     }
-    if (points < 500 + missile ** 3.75) {
+    if (points < 2500 + missile ** 3.75) {
         document.getElementById("missilebtn").disabled = true;
     }else{
         document.getElementById("missilebtn").disabled = false;
     }
-    if (points < 1000 + nuke ** 4.25) {
+    if (points < 10000 + nuke ** 4.25) {
         document.getElementById("nukebtn").disabled = true;
     }else{
         document.getElementById("nukebtn").disabled = false;
