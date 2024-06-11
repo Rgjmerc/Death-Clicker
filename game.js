@@ -70,7 +70,7 @@ function playMusic() {
 }
 function increasePoints() {
     deathsound.play()
-    points = points + 100000 + (knife * .2)
+    points = points + 1 + (knife * .2)
     tracker.innerText = points.toFixed(1) + " Deaths"
 }
 function purchaseKnife() {
