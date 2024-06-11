@@ -26,12 +26,13 @@ let nukeCost = document.getElementById("nukeCost")
 let bgMusic = new Howl({
     src: ["audio/bgmusic.ogg"],
     autoplay: true,
-    volume: .25,
+    volume: .65,
     loop: true
 })
 
 let knifesound = new Howl({
-    src: ["audio/knife.mp3"]
+    src: ["audio/knife.mp3"],
+    volume: .4
 })
 
 let deathsound = new Howl({
@@ -44,11 +45,13 @@ let dynamitesound = new Howl({
 })
 
 let bombsound = new Howl({
-    src: ["audio/bomb.mp3"]
+    src: ["audio/bomb.mp3"],
+    volume: .25
 })
 
 let missilesound = new Howl({
-    src: ["audio/missile.mp3"]
+    src: ["audio/missile.mp3"],
+    volume: 2
 })
 
 let nukesound = new Howl({
@@ -67,7 +70,7 @@ function playMusic() {
 }
 function increasePoints() {
     deathsound.play()
-    points = points + 1 + (knife * .2)
+    points = points + 100000 + (knife * .2)
     tracker.innerText = points.toFixed(1) + " Deaths"
 }
 function purchaseKnife() {
